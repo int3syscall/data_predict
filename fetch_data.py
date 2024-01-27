@@ -11,14 +11,14 @@ table = "testdata2s"
 
 
 
-def fetch_datas(address, port, database, table):
+def fetch_datas(address, port, database, table , user, password):
 
     connection = mysql.connector.connect(
         host=address,
         port=port,
         database=database,
-        user="root",
-        password="")
+        user=user,
+        password=password)
     # Fetch all data from the table
     query = f"SELECT id, boardID, data1 AS irms, data2 AS watt, data3 AS kwh, created_at AS Datetime FROM {table}"
     data = pd.read_sql(query, connection)
