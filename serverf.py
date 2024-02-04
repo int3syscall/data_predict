@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/data', methods=['GET'])
 def get_prediction():
-    last_day_data = fetch_datas("sql6.freemysqlhosting.net", 3306, "sql6680082", "testdata2s", "sql6680082", "aeqEUgBmFZ")
+    last_day_data = fetch_datas("80.66.87.47", 3306, "laveraluser", "testdata2s", "root", "Password123@jj")
     prediction = predict(last_day_data)
     prediction = str(prediction).replace("},{", "},\n{")
     # return jsonify(prediction)
