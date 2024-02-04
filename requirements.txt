@@ -2,8 +2,8 @@ gunicorn
 flask
 keras
 pandas
-mysql-connector
 mysql-connector-python
+sqlalchemy
 numpy
 matplotlib
 scikit-learn
