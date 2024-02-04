@@ -3,6 +3,7 @@ flask
 keras
 pandas
 mysql-connector
+mysql-connector-python
 numpy
 matplotlib
 scikit-learn
