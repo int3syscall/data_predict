@@ -6,11 +6,11 @@ app = Flask(__name__)
 
 @app.route('/data', methods=['GET'])
 def get_prediction():
-    last_day_data = fetch_datas("80.66.87.47", 3306, "laveraluser", "testdata2s", "root", "Password123@jj")
+    last_day_data = fetch_datas("80.66.87.47", 3306, "laveraluser", "testdata2s", "root", "Password123!jj")
     prediction = predict(last_day_data)
     prediction = str(prediction).replace("},{", "},\n{")
-    # return jsonify(prediction)
-    return prediction
+    return jsonify(prediction)
+    # return prediction
 
 @app.route('/test_api', methods=['GET'])
 def test_api():
