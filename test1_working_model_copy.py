@@ -5,7 +5,9 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
 from keras.models import load_model
+# from fetch_data import fetch_datas
 import os
+import json
 
 
 
@@ -99,7 +101,7 @@ def predict(data):
     })
 
     # Convert the 'Datetime' column to a string
-    df_predict['Datetime'] = df_predict['Datetime'].astype(str)
+    # df_predict['Datetime'] = df_predict['Datetime'].astype(str)
 
 
     # # Create a DataFrame from the predicted values
@@ -109,7 +111,17 @@ def predict(data):
     # })
 
     # Save the DataFrame to a CSV file
-    df_predict.to_csv('predicted_data.csv', index=False)
+    # df_predict.to_csv('predicted_data.csv', index=False)
 
     json_data = df_predict.to_json(orient='records')
-    return json_data
+
+    json_data.replace('[', '')
+    json_data.replace(']', '')
+
+    data_as_dic = json.loads(json_data)
+
+    return data_as_dic
+
+
+# last_day_data = fetch_datas("80.66.87.47", 3306, "laveraluser", "testdata2s", "root", "Password123!jj")
+# predict(last_day_data)
