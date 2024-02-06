@@ -1,5 +1,6 @@
 gunicorn
 flask
+Flask-Cors
 keras
 pandas
 mysql-connector-python
